@@ -1057,6 +1057,7 @@ class MegatronEngine(TrainEngine):
         reward_normalization: bool = False,
         drop_incomplete_group: bool = False,
         min_usable_group_size: int = 1,
+        reward_normalization_use_std: bool = True,
     ) -> list[dict[str, Any]]:
         self._check_rollout_engine_connected()
         return self.rollout_coordinator.rollout_batch(
@@ -1066,6 +1067,7 @@ class MegatronEngine(TrainEngine):
             group_size=group_size,
             min_usable_group_size=min_usable_group_size,
             reward_normalization=reward_normalization,
+            reward_normalization_use_std=reward_normalization_use_std,
             drop_incomplete_group=drop_incomplete_group,
         )
 
@@ -1080,6 +1082,7 @@ class MegatronEngine(TrainEngine):
         reward_normalization: bool = False,
         drop_incomplete_group: bool = False,
         min_usable_group_size: int = 1,
+        reward_normalization_use_std: bool = True,
     ) -> list[dict[str, Any]]:
         self._check_rollout_engine_connected()
         return self.rollout_coordinator.prepare_batch(
@@ -1091,6 +1094,7 @@ class MegatronEngine(TrainEngine):
             min_usable_group_size=min_usable_group_size,
             dynamic_bs=dynamic_bs,
             reward_normalization=reward_normalization,
+            reward_normalization_use_std=reward_normalization_use_std,
             drop_incomplete_group=drop_incomplete_group,
         )
 
